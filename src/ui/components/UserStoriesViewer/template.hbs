@@ -1,3 +1,7 @@
 <div><h1>Welcome to Glimmer!</h1></div>
 
-{{ rawYaml }}
+{{#each userStories key="@index" as |story|}}
+  <div>
+    As a {{story.as_a}}, I want {{story.i_want}} so that {{story.so_that}}.
+  </div>
+{{/each}}
