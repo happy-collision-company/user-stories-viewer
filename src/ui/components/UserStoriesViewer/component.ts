@@ -1,24 +1,25 @@
-import Component, { tracked } from '@glimmer/component'
-import yaml from 'js-yaml'
+import Component, { tracked } from '@glimmer/component';
+import yaml from 'js-yaml';
 
 export default class UserStoriesViewer extends Component {
-  @tracked userStories = []
+  @tracked
+  private userStories = [];
 
-  didInsertElement() {
-    this.populateStories()
+  public didInsertElement() {
+    this.populateStories();
   }
 
-  async getYaml() {
+  private async getYaml() {
     return await fetch('./user-stories.yml')
-      .then(response => response.text())
+      .then((response) => response.text());
   }
 
-  convertYaml(text) {
-    return yaml.safeLoad(text)
+  private convertYaml(text) {
+    return yaml.safeLoad(text);
   }
 
-  async populateStories() {
-    const rawYaml = await this.getYaml()
-    this.userStories = this.convertYaml(rawYaml)
+  private async populateStories() {
+    const rawYaml = await this.getYaml();
+    this.userStories = this.convertYaml(rawYaml);
   }
 }

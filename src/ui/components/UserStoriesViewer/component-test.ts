@@ -8,6 +8,6 @@ module('Component: UserStoriesViewer', function(hooks) {
 
   test('it renders', async function(assert) {
     await this.render(hbs`<UserStoriesViewer />`);
-    assert.equal(this.containerElement.textContent, 'Welcome to Glimmer!\n');
+    assert.ok(this.containerElement.textContent.match('Welcome to Glimmer!\n'));
   });
 });
