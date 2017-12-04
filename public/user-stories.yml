@@ -1,0 +1,51 @@
+#
+# `core` means that it needs to be built to show the board
+#
+# `initial` means it should be ready at launch, and probably have a way to fake a
+# demo for the board, or to at least explain
+#
+# `opening` means that the feature must be ready for opening week of the first
+# performance
+#
+# `future` means any time after launch
+#
+
+- as_a: guest
+  i_want: to see all productions, dates, times, and costs
+  so_that: I can make decisions without dealing with account creation first
+  necessity: core
+  tags:
+    - session logic
+
+
+- as_a: manager
+  i_want: to be able to break all seating restrictions at my discretion
+  so_that: I can make allowances for any unforseen circumstances
+  necessity: initial
+  tags:
+    - reservation rules
+
+- as_a: patron
+  i_want: to see any special messages when I purchase a ticket online
+  so_that: I am aware of any policies or changes I need to consider before purchasing
+  necessity: initial
+  tags:
+    - purchasing
+    - legal messaging
+    - customer ui
+
+- as_a: administrator
+  i_want: to force customers to confirm any required acknowledgements on any purchasable
+  so_that: I know that a customer has agreed to any terms we may have
+  necessity: future
+  tags:
+    - legal messaging
+    - customer ui
+
+- as_a: attendant
+  i_want: to view account information for patrons
+  so_that: I can better assist them with their issues
+  necessity: core
+  tags:
+    - staff ui
+    - data representation
