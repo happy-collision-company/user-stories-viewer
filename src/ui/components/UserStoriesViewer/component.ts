@@ -4,11 +4,21 @@ import yaml from 'js-yaml'
 export default class UserStoriesViewer extends Component {
   @tracked userStories = []
 
-  async didInsertElement() {
-    const rawYaml = await fetch('./user-stories.yml')
-      .then(response => response.text())
+  didInsertElement() {
+    this.populateStories()
+  }
 
-    this.userStories = yaml.safeLoad(rawYaml);
-    console.log(this.userStories)
+  async getYaml() {
+    return await fetch('./user-stories.yml')
+      .then(response => response.text())
+  }
+
+  convertYaml(text) {
+    return yaml.safeLoad(text)
+  }
+
+  async populateStories() {
+    const rawYaml = await this.getYaml()
+    this.userStories = this.convertYaml(rawYaml)
   }
 }
