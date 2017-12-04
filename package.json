@@ -9,7 +9,7 @@
   "scripts": {
     "build": "ember build -prod",
     "start": "ember server",
-    "test": "ember test"
+    "test": "ember test --server"
   },
   "devDependencies": {
     "@glimmer/application": "^0.8.0",
