@@ -35,6 +35,7 @@ export default class UserStoriesViewer extends Component {
 
   private populateTagsAndPriority() {
     this.tags = this.userStories.map(s => s.tags)
+      .reduce((a, b) => a.concat(b))
       .reduce((a, tag) => addUnique(tag, a), [])
     this.priorities = this.userStories.map(s => s.necessity)
       .reduce((a, priority) => addUnique(priority, a), [])

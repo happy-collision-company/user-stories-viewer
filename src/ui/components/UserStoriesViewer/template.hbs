@@ -1,5 +1,8 @@
 <div><h1>Welcome to Glimmer!</h1></div>
 
+<Tags @name="Priority" @tags={{ priorities }} />
+<Tags @name="Tags" @tags={{ tags }} />
+
 {{#each userStories key="@index" as |story|}}
-  <Story @story={{story}}></Story>
+  <Story @story={{story}} />
 {{/each}}
