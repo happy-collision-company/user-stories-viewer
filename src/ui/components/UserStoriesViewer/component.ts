@@ -8,11 +8,26 @@ function addUnique(value, array) {
   return array;
 }
 
+type UserStory = {
+  as_a: string,
+  i_want: string,
+  so_that: string,
+  necessity: string,
+  tags: string[]
+}
+
 export default class UserStoriesViewer extends Component {
-  @tracked private allUserStories = [];
-  @tracked private userStories = [];
+  @tracked private allUserStories: UserStory[] = [];
+  @tracked private userStories: UserStory[] = [];
   @tracked private tags = [];
   @tracked private priorities = [];
+
+  constructor(things) {
+    super(things);
+
+    this.chooseTag = this.chooseTag.bind(this);
+    this.choosePriority = this.choosePriority.bind(this);
+  }
 
   public async didInsertElement() {
     await this.populateStories();
@@ -30,7 +45,7 @@ export default class UserStoriesViewer extends Component {
 
   private async populateStories() {
     const rawYaml = await this.getYaml();
-    this.allUserStories = this.userStories = this.convertYaml(rawYaml);
+    this.allUserStories = this.userStories = this.convertYaml(rawYaml) as UserStory[];
   }
 
   private populateTagsAndPriority() {
@@ -39,5 +54,15 @@ export default class UserStoriesViewer extends Component {
       .reduce((a, tag) => addUnique(tag, a), [])
     this.priorities = this.userStories.map(s => s.necessity)
       .reduce((a, priority) => addUnique(priority, a), [])
+  }
+
+  private chooseTag(tag: string) {
+    this.userStories = this.allUserStories
+      .filter(us => us.tags.indexOf(tag) > -1)
+  }
+
+  private choosePriority(priority: string) {
+    this.userStories = this.allUserStories
+      .filter(us => us.necessity === priority)
   }
 }

@@ -1,7 +1,11 @@
 <div><h1>Welcome to Glimmer!</h1></div>
 
-<Tags @name="Priority" @tags={{ priorities }} />
-<Tags @name="Tags" @tags={{ tags }} />
+<Tags @name="Priority"
+  @tags={{ priorities }}
+  @action={{choosePriority}} />
+<Tags @name="Tags"
+  @tags={{ tags }}
+  @action={{chooseTag}} />
 
 {{#each userStories key="@index" as |story|}}
   <Story @story={{story}} />
