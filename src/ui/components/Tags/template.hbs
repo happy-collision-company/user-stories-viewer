@@ -2,7 +2,7 @@
   <h2>{{@name}}</h2>
   <ul>
     {{#each @tags key="@index" as |tag|}}
-      <li><a onclick={{action choose tag}}>{{ tag }}</a></li>
+      <li><a href="#" onclick={{action @action tag}}>{{ tag }}</a></li>
     {{/each}}
   </ul>
 </div>
