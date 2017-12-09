@@ -52,8 +52,11 @@ export default class UserStoriesViewer extends Component {
     this.tags = this.userStories.map(s => s.tags)
       .reduce((a, b) => a.concat(b))
       .reduce((a, tag) => addUnique(tag, a), [])
+
     this.priorities = this.userStories.map(s => s.necessity)
       .reduce((a, priority) => addUnique(priority, a), [])
+
+    this.priorities.unshift('all')
   }
 
   private chooseTag(tag: string) {
@@ -62,6 +65,10 @@ export default class UserStoriesViewer extends Component {
   }
 
   private choosePriority(priority: string) {
+    if (priority === 'all') {
+      this.userStories = [].concat(this.allUserStories)
+      return;
+    }
     this.userStories = this.allUserStories
       .filter(us => us.necessity === priority)
   }
