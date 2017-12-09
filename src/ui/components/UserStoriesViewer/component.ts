@@ -1,4 +1,4 @@
-import Component, { tracked } from '@glimmer/component';
+import Component, { tracked, TemplateMeta } from '@glimmer/component';
 import yaml from 'js-yaml';
 
 function addUnique(value, array) {

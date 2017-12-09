@@ -1,3 +1,32 @@
 h1 {
   color: #444;
 }
+
+.tags {
+  padding: 12px;
+
+  > ul {
+    display: flex;
+    padding: 0;
+    list-style: none;
+
+    > li > a {
+      display: inline-block;
+      padding: 6px;
+      background: #ccc;
+      margin: 4px;
+      border: #bbb;
+      text-decoration: none;
+      color: #333;
+      cursor: pointer;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.filtering {
+  display: flex;
+}
