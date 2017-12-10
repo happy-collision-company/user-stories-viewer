@@ -1,3 +1,7 @@
+$story-font-size: 1.5rem;
+$marker-width: $story-font-size * 4;
+$marker-gap: 0.5 * $story-font-size;
+
 html {
   box-sizing: border-box;
 }
@@ -45,10 +49,11 @@ h1 {
 }
 
 // Stories
+$story-padding: 8px;
 
 .story {
   margin: 24px;
-  padding: 8px;
+  padding: $story-padding;
   border: 1px solid #bbb;
   background: #eee;
   display: block;
@@ -56,18 +61,19 @@ h1 {
   margin: 20px auto;
 }
 
+
 .meta {
   display: flex;
   position: relative;
-  top: -8px;
-  left: -8px;
-  width: calc(100% + 16px);
+  top: -#{$story-padding};
+  left: -#{$story-padding};
+  width: calc(100% + #{$story-padding * 2});
   > * {
-    padding: 8px;
+    padding: $story-padding;
   }
 
   .priority {
-    flex-basis: 25%;
+    flex-basis: calc(#{$marker-width} + #{$story-padding} + #{$marker-gap / 2});
     flex-grow: 0;
     flex-shrink: 0;
     text-align: center;
@@ -82,8 +88,8 @@ h1 {
 }
 
 .phrase {
-  font-size: 1.5em;
-  margin: 0.25em;
+  font-size: $story-font-size;
+  margin: 0.25em 0;
   display: flex;
 
   > * {
@@ -91,14 +97,19 @@ h1 {
 
     &:first-child {
       text-align: right;
-      flex-basis: 4em;
+      flex-basis: $marker-width;
       flex-grow: 0;
       flex-shrink: 0;
-      margin-right: 0.75ex;
+      margin-right: 0.5em;
     }
   }
 }
 
 .marker {
   color: #777;
+}
+
+.notes {
+  margin-top: 24px;
+  padding-left: $marker-width + $marker-gap;
 }

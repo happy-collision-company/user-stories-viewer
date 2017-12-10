@@ -22,4 +22,10 @@
     <span class="marker">so that</span>
     <span class="information">{{ @story.so_that }}{{ period }}</span>
   </p>
+
+  {{#if @story.note}}
+    <div class="notes">
+      {{ @story.note }}
+    </div>
+  {{/if}}
 </div>

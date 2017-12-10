@@ -16,6 +16,7 @@
   necessity: core
   tags:
     - session logic
+  note: This was born of frustration with other sites.
 
 
 - as_a: manager
