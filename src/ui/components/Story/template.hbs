@@ -1,3 +1,25 @@
 <div class="story">
-  As a {{@story.as_a}}, I want {{@story.i_want}} so that {{@story.so_that}}.
+  <div class="meta">
+    <div class="priority">{{ @story.necessity }}</div>
+    <div class="tags">
+      {{#each @story.tags key="@index" as |tag|}}
+        <span>{{tag}}</span>
+      {{/each}}
+    </div>
+  </div>
+
+  <p class="phrase">
+    <span class="marker">As {{ a }}</span>
+    <span class="information">{{ @story.as_a }},</span>
+  </p>
+
+  <p class="phrase">
+    <span class="marker">I want</span>
+    <span class="information">{{ @story.i_want }}</span>
+  </p>
+
+  <p class="phrase">
+    <span class="marker">so that</span>
+    <span class="information">{{ @story.so_that }}{{ period }}</span>
+  </p>
 </div>

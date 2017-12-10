@@ -12,7 +12,7 @@
 
 - as_a: guest
   i_want: to see all productions, dates, times, and costs
-  so_that: I can make decisions without dealing with account creation first
+  so_that: I can make decisions without dealing with account creation first!
   necessity: core
   tags:
     - session logic
