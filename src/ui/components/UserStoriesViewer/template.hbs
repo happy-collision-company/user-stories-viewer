@@ -11,5 +11,7 @@
 </div>
 
 {{#each userStories key="@index" as |story|}}
-  <Story @story={{ story }} />
+  <Story @story={{ story }}
+    @onTagClick={{ chooseTag }}
+    @onPriorityClick={{ choosePriority }} />
 {{/each}}

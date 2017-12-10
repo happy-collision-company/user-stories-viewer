@@ -19,7 +19,7 @@ h1 {
 
 // Tags
 
-.tags {
+.tags-component {
   padding: 0 12px;
 
   > ul {
@@ -37,6 +37,10 @@ h1 {
       color: #333;
       cursor: pointer;
 
+      &:hover {
+        background: #bbb;
+      }
+
       &:first-child {
         margin-left: 0;
       }
@@ -51,7 +55,7 @@ h1 {
 // Stories
 $story-padding: 8px;
 
-.story {
+.story-component {
   margin: 24px;
   padding: $story-padding;
   border: 1px solid #bbb;
@@ -78,12 +82,28 @@ $story-padding: 8px;
     flex-shrink: 0;
     text-align: center;
     background: #ccc;
+    cursor: pointer;
+    &:hover {
+      background: #bbb;
+    }
   }
   .tags {
     flex-grow: 1;
     display: flex;
     background-color: #ddd;
-    justify-content: space-around;
+    justify-content: flex-end;
+
+    .tag{
+      padding: 3px 6px;
+      margin: 0 3px;
+      border-radius: 6px;
+      background: #bbb;
+
+      &:hover {
+        cursor: pointer;
+        background: #aaa;
+      }
+    }
   }
 }
 

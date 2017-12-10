@@ -1,9 +1,14 @@
-<div class="story">
+<div class="story-component">
   <div class="meta">
-    <div class="priority">{{ @story.necessity }}</div>
+    <div class="priority"
+      onclick={{action @onPriorityClick @story.necessity}}>
+    {{ @story.necessity }}
+    </div>
     <div class="tags">
       {{#each @story.tags key="@index" as |tag|}}
-        <span>{{tag}}</span>
+        <div class="tag" onclick={{action @onTagClick tag}}>
+          {{tag}}
+        </div>
       {{/each}}
     </div>
   </div>
