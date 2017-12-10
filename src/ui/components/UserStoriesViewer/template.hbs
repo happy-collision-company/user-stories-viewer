@@ -14,9 +14,11 @@
     @action={{ chooseTag }} />
 </header>
 
-{{#each userStories key="@index" as |story|}}
-  <Story @story={{ story }}
-    @onTagClick={{ chooseTag }}
-    @onRoleClick={{ chooseRole }}
-    @onPriorityClick={{ choosePriority }} />
-{{/each}}
+<div class="stories">
+  {{#each userStories key="@index" as |story|}}
+    <Story @story={{ story }}
+      @onTagClick={{ chooseTag }}
+      @onRoleClick={{ chooseRole }}
+      @onPriorityClick={{ choosePriority }} />
+  {{/each}}
+</div>

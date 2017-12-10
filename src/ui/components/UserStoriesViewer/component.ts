@@ -36,9 +36,21 @@ export default class UserStoriesViewer extends Component {
     this.populateFilterables();
   }
 
-  private async getYaml() {
-    return await fetch('./user-stories.yml')
-      .then((response) => response.text());
+  private getYaml(altPath?: string) {
+    let path = altPath || '../user_stories.yml';
+    return fetch(path)
+    .then((response) => {
+      if (response.ok) {
+        return response.text();
+      } else {
+        const match = path.match(/^\.\.\/(.*)/);
+        if (match) {
+          return this.getYaml(match[1]);
+        } else {
+          throw new Error('No Yaml.');
+        }
+      }
+    });
   }
 
   private convertYaml(text) {

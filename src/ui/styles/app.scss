@@ -24,6 +24,12 @@ h1 {
   margin-top: 0.3em;
 }
 
+.stories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 // Tags
 
 .tags-component {
@@ -71,7 +77,7 @@ $story-padding: 8px;
   border: 1px solid #bbb;
   background: #eee;
   display: block;
-  max-width: 600px;
+  flex-basis: 600px;
   margin: 20px auto;
 }
 
