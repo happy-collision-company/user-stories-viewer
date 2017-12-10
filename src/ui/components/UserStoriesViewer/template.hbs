@@ -5,6 +5,10 @@
     @tags={{ priorities }}
     @action={{ choosePriority }} />
 
+  <Tags @name="Roles"
+    @tags={{ roles }}
+    @action={{ chooseRole }} />
+
   <Tags @name="Tags"
     @tags={{ tags }}
     @action={{ chooseTag }} />
@@ -13,5 +17,6 @@
 {{#each userStories key="@index" as |story|}}
   <Story @story={{ story }}
     @onTagClick={{ chooseTag }}
+    @onRoleClick={{ chooseRole }}
     @onPriorityClick={{ choosePriority }} />
 {{/each}}

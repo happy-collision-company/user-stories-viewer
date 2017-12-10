@@ -1,12 +1,12 @@
 <div class="story-component">
   <div class="meta">
     <div class="priority"
-      onclick={{action @onPriorityClick @story.necessity}}>
+      onclick={{ action @onPriorityClick @story.necessity }}>
     {{ @story.necessity }}
     </div>
     <div class="tags">
       {{#each @story.tags key="@index" as |tag|}}
-        <div class="tag" onclick={{action @onTagClick tag}}>
+        <div class="tag" onclick={{ action @onTagClick tag }}>
           {{tag}}
         </div>
       {{/each}}
@@ -15,17 +15,28 @@
 
   <p class="phrase">
     <span class="marker">As {{ a }}</span>
-    <span class="information">{{ @story.as_a }},</span>
+    <span class="information">
+      <span class="role"
+        onclick={{ action @onRoleClick @story.as_a }}>
+        {{ @story.as_a }},
+      </span>
+    </span>
   </p>
 
   <p class="phrase">
     <span class="marker">I want</span>
-    <span class="information">{{ @story.i_want }}</span>
+    <span class="information">
+      <span class="desire">{{ @story.i_want }}</span>
+    </span>
   </p>
 
   <p class="phrase">
     <span class="marker">so that</span>
-    <span class="information">{{ @story.so_that }}{{ period }}</span>
+    <span class="information">
+      <span class="outcome">
+        {{ @story.so_that }}{{ period }}
+      </span>
+    </span>
   </p>
 
   {{#if @story.note}}

@@ -50,6 +50,7 @@ h1 {
 
 .filtering {
   display: flex;
+  flex-wrap: wrap;
 }
 
 // Stories
@@ -132,4 +133,13 @@ $story-padding: 8px;
 .notes {
   margin-top: 24px;
   padding-left: $marker-width + $marker-gap;
+}
+
+.information .role {
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    color: #777;
+  }
 }
