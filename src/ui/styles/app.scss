@@ -11,20 +11,34 @@ html {
 
 body {
   font-family: Helvetica, sans-serif;
+  color: #333;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 h1 {
-  color: #444;
+  margin-right: 1em;
+  margin-top: 0.3em;
 }
 
 // Tags
 
 .tags-component {
-  padding: 0 12px;
+  padding: 0;
+  margin-right: 1em;
+
+  h2 {
+    margin: 0;
+  }
 
   > ul {
     display: flex;
+    flex-wrap: wrap;
     padding: 0;
+    margin: 0;
     list-style: none;
 
     > li > a {
@@ -34,7 +48,7 @@ h1 {
       margin: 4px;
       border: #bbb;
       text-decoration: none;
-      color: #333;
+      color: #777;
       cursor: pointer;
 
       &:hover {
@@ -46,11 +60,6 @@ h1 {
       }
     }
   }
-}
-
-.filtering {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 // Stories
@@ -83,6 +92,7 @@ $story-padding: 8px;
     flex-shrink: 0;
     text-align: center;
     background: #ccc;
+    color: #777;
     cursor: pointer;
     &:hover {
       background: #bbb;
@@ -98,7 +108,9 @@ $story-padding: 8px;
       padding: 3px 6px;
       margin: 0 3px;
       border-radius: 6px;
-      background: #bbb;
+      color: #777;
+      background: #c6c6c6;
+      font-size: 0.75em;
 
       &:hover {
         cursor: pointer;

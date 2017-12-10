@@ -1,6 +1,6 @@
-<h1>User Stories</h1>
+<header>
+  <h1>User Stories</h1>
 
-<div class="filtering">
   <Tags @name="Priority"
     @tags={{ priorities }}
     @action={{ choosePriority }} />
@@ -12,7 +12,7 @@
   <Tags @name="Tags"
     @tags={{ tags }}
     @action={{ chooseTag }} />
-</div>
+</header>
 
 {{#each userStories key="@index" as |story|}}
   <Story @story={{ story }}
